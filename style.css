@@ -70,7 +70,7 @@ div p{
     width: 10rem;
     position: absolute;
     right: 0;
-    animation: rocket 4s ease infinite alternate;
+    animation: rocket 4s linear infinite alternate;
 }
 
 @keyframes rocket {

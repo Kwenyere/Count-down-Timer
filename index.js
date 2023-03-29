@@ -3,7 +3,7 @@ const hour = document.getElementById('hours');
 const minute = document.getElementById('minutes');
 const second = document.getElementById('seconds')
 
-const newYearTime = new Date("Oct 08 2023 00:00:00")
+const newYearTime = new Date("Mar 31 2025 00:00:00")
 
 const setTime = () => {
     const currentTime = new Date();
@@ -19,8 +19,12 @@ const setTime = () => {
     minute.textContent = m < 10 ? '0' + m :m;
     second.textContent = s <10 ? '0' +s :s;
 
-    if(timeRemaining === 0){
+    if(timeRemaining  < 0){
         clearInterval(setTime);
+        days.textContent = '0' + '0';
+        hour.textContent = '0' + '0';
+        minute.textContent = '0' + '0';
+        second.textContent = '0' + '0';
     }
 
 };

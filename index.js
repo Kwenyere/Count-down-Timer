@@ -1,40 +1,32 @@
 const days =document.getElementById('days');
-const hour =document.getElementById('hours');
+const hour = document.getElementById('hours');
 const minute = document.getElementById('minutes');
 const second = document.getElementById('seconds')
 
-let secValue = 60;
-let minValue = 60;
-let hourValue = 24;
-let dayValue = 9;
+const newYearTime = new Date("Oct 08 2023 00:00:00")
 
-const setTime = setInterval(() =>{
-    secValue--;
-    if(secValue === 0) {
-        minValue--;
-        secValue = 60;
-    }
-    if(minValue === 0){
-        hourValue--;
-        minValue = 60;
-    }
-    if(hourValue === 0) {
-        days--;
-        hourValue=24;
-    }
-    if (dayValue === 0) {
+const setTime = () => {
+    const currentTime = new Date();
+    const timeRemaining = newYearTime - currentTime;
+
+    const d = Math.floor(timeRemaining /1000 / 60 / 60/ 24);
+    const h = Math.floor(timeRemaining /1000 / 60 / 60) % 24;
+    const m = Math.floor(timeRemaining /1000 / 60 )% 60;
+    const s = Math.floor(timeRemaining /1000) % 60;
+
+    days.textContent = d;
+    hour.textContent = h < 10 ? '0' + h : h;
+    minute.textContent = m < 10 ? '0' + m :m;
+    second.textContent = s <10 ? '0' +s :s;
+
+    if(timeRemaining === 0){
         clearInterval(setTime);
-        second.textContent = 00;
-        minute.textContent = 00;
-        hour.textContent = 00;
-        days.textContent = 00;
     }
-    
-    second.textContent = secValue;
-    minute.textContent = minValue;
-    hour.textContent = hourValue;
-    days.textContent = dayValue
 
-},1000);
+};
+setTime();
+
+setInterval(setTime,1000);
+
 
 

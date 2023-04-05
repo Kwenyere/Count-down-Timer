@@ -3,7 +3,7 @@ const hour = document.getElementById('hours');
 const minute = document.getElementById('minutes');
 const second = document.getElementById('seconds')
 
-const newYearTime = new Date("Mar 31 2025 00:00:00")
+const newYearTime = new Date("Mar 31 2027 00:00:00")
 
 const setTime = () => {
     const currentTime = new Date();
